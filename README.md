@@ -9,8 +9,11 @@ informações no banco de dados, bem como prover métodos de busca e remoção.
 Configurações Banco de Dados:
 -----------------------------
 driverClassName: com.mysql.jdbc.Driver
+
 url: jdbc:mysql://localhost:3306/b2w
+
 username: root
+
 password: sa1234
 
 Rodando o sistema com maven
@@ -27,8 +30,8 @@ http://localhost:8088/swagger-ui.html
 
 Utilização do Jacoco para metricas de cobertura de testes unitários
 -------------------------------------------------------------------
-mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true
+executar o seguinte comando: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true
 
-relatório em {diretorioProjeto}/target/site/jacoco/index.html
+relatório estará disponível em:  {diretorioProjeto}/target/site/jacoco/index.html
 	
 
