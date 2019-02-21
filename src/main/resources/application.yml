@@ -1,0 +1,25 @@
+server:
+  port: 8088
+
+spring:
+  profiles.active: dev
+  
+
+---   
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/b2w
+    username: root
+    password: sa1234
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+ 
+logging:
+  level:
+    org.springframework.security: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+ 
