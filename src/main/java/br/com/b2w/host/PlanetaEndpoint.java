@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.b2w.application.PlanetaService;
 import br.com.b2w.domain.Planeta;
 import br.com.b2w.host.dto.PlanetaResponse;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/planetas")
@@ -25,6 +26,7 @@ public class PlanetaEndpoint {
     private PlanetaService planetaService;
 
     @PostMapping
+    @ApiOperation(value = "Adiciona um novo planeta", response = PlanetaResponse.class)
     public ResponseEntity<PlanetaResponse> adicionarPlaneta(@RequestParam("url") final String url) {
 
         final Planeta planeta = planetaService.adicionarPlaneta(url);
@@ -33,6 +35,7 @@ public class PlanetaEndpoint {
     }
 
     @GetMapping("/swapi")
+    @ApiOperation(value = "Retorna os planetas da api swap.co", response = PlanetaResponse[].class)
     public ResponseEntity<List<PlanetaResponse>> getPlanetasDaApiSwapi() {
         final List<Planeta> planetasDaApiSwapi = planetaService.getPlanetasDaApiSwapi();
 
@@ -41,6 +44,7 @@ public class PlanetaEndpoint {
     }
 
     @GetMapping("/")
+    @ApiOperation(value = "Retorna os planetas cadastrados no banco de dados.", response = PlanetaResponse[].class)
     public ResponseEntity<List<PlanetaResponse>> getPlanetasDoBancoDeDados() {
 
         final List<Planeta> planetasDoBancoDeDados = planetaService.getPlanetasDoBancoDeDados();
@@ -50,6 +54,7 @@ public class PlanetaEndpoint {
     }
 
     @GetMapping("/nome/")
+    @ApiOperation(value = "Busca os planetas por nome", response = PlanetaResponse[].class)
     public ResponseEntity<List<PlanetaResponse>> buscarPorNome(@RequestParam(name = "nome", defaultValue = "") final String nome) {
 
         final List<Planeta> buscarPorNome = planetaService.buscarPorNome(nome);
@@ -59,6 +64,7 @@ public class PlanetaEndpoint {
     }
 
     @GetMapping("/{id}")
+    @ApiOperation(value = "Retorna um planeta pelo id cadastrado no banco de dados", response = PlanetaResponse.class)
     public ResponseEntity<PlanetaResponse> buscarPorId(@PathVariable("id") final Integer id) {
         final Planeta planeta = planetaService.buscarPorId(id);
         final PlanetaResponse response = construiResponse(planeta);
@@ -66,6 +72,7 @@ public class PlanetaEndpoint {
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation(value = "Remove um planeta cadastrado pelo id", response = Void.class)
     public ResponseEntity<Void> removerPlaneta(@PathVariable("id") final Integer id) {
         planetaService.removerPlaneta(id);
         return ResponseEntity.noContent().build();
