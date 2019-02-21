@@ -78,6 +78,7 @@ public class PlanetaServiceImpl implements PlanetaService {
         planeta.setClima(planet.getClimate());
         planeta.setQuantidadeAparicoes(planet.getFilms().size());
         planeta.setTerreno(planet.getTerrain());
+        planeta.setUrl(planet.getUrl());
         return planeta;
     }
 

@@ -85,6 +85,7 @@ public class PlanetaEndpoint {
         response.setNome(planeta.getNome());
         response.setQuantidadeAparicoes(planeta.getQuantidadeAparicoes());
         response.setTerreno(planeta.getTerreno());
+        response.setUrl(planeta.getUrl());
         return response;
     }
 

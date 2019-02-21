@@ -1,5 +1,9 @@
 package br.com.b2w.host.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(value = Include.NON_NULL)
 public class PlanetaResponse {
 
     private Integer id;
@@ -7,6 +11,7 @@ public class PlanetaResponse {
     private String clima;
     private String terreno;
     private int quantidadeAparicoes;
+    private String url;
 
     public Integer getId() {
         return id;
@@ -46,6 +51,14 @@ public class PlanetaResponse {
 
     public void setQuantidadeAparicoes(final int quantidadeAparicoes) {
         this.quantidadeAparicoes = quantidadeAparicoes;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }

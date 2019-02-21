@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "planetas")
@@ -19,6 +20,9 @@ public class Planeta {
     private String terreno;
     @Column(name = "quantidade_aparicoes")
     private int quantidadeAparicoes;
+
+    @Transient
+    private String url;
 
     public Planeta() {
         super();
@@ -62,6 +66,14 @@ public class Planeta {
 
     public void setQuantidadeAparicoes(final int quantidadeAparicoes) {
         this.quantidadeAparicoes = quantidadeAparicoes;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }
